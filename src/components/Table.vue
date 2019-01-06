@@ -1,7 +1,7 @@
 <template>
   <el-row type="flex" class="row-bg" justify="center">
     <el-col :span="12">
-      <el-table :data="displayData(this.tableData1)" border style="width: 100%">
+      <el-table :data="displayData(this.tableData1,this.currentPage1)" border style="width: 100%">
         <el-table-column fixed prop="date" label="日期"></el-table-column>
         <el-table-column prop="name" label="姓名"></el-table-column>
         <el-table-column prop="province" label="省份"></el-table-column>
@@ -19,13 +19,13 @@
         background
         layout="prev, pager, next"
         :total="tableData1.length"
-        :current-page="currentPage"
+        :current-page="currentPage1"
         @click="checkPage()"
-        @current-change="handleCurrentChange"
+        @current-change="handleCurrentChange1"
       ></el-pagination>
     </el-col>
     <el-col :span="12">
-      <el-table :data="displayData(this.tableData2)" border style="width: 100%">
+      <el-table :data="displayData(this.tableData2, this.currentPage2)" border style="width: 100%">
         <el-table-column fixed prop="date" label="日期"></el-table-column>
         <el-table-column prop="name" label="姓名"></el-table-column>
         <el-table-column prop="province" label="省份"></el-table-column>
@@ -43,9 +43,10 @@
         background
         layout="prev, pager, next"
         :total="tableData2.length"
-        :current-page="currentPage"
+        :current-page="currentPage2"
         @click="checkPage()"
-        @current-change="handleCurrentChange"
+        @current-change="handleCurrentChange2"
+        v-if="tableData2.length >= 10"
       ></el-pagination>
     </el-col>
   </el-row>
@@ -57,14 +58,16 @@ export default {
   computed: {},
   methods: {
     checkPage() {},
-    handleCurrentChange(val) {
-      //   console.log(`当前页: ${val}`);
-      this.currentPage = val;
+    handleCurrentChange1(val) {
+      this.currentPage1 = val;
     },
-    displayData(val) {
+    handleCurrentChange2(val) {
+      this.currentPage2 = val;
+    },
+    displayData(val, page) {
       if (val != null) {
         let result = val.filter(item => {
-          return item.page == this.currentPage;
+          return item.page == page;
         });
         return result;
       } else {
@@ -74,8 +77,90 @@ export default {
   },
   data() {
     return {
-      currentPage: 1,
+      currentPage1: 1,
+      currentPage2: 1,
       tableData2: [
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
+        {
+          date: "2016-05-03",
+          name: "黃小虎",
+          province: "上海",
+          city: "普陀区",
+          address: "上海市普陀区金沙江路 1518 弄",
+          zip: 200333,
+          page: 1
+        },
         {
           date: "2016-05-03",
           name: "黃小虎",
