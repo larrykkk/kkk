@@ -9,6 +9,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import jsPDF from 'jspdf';
 
 export default {
   name: "home",
