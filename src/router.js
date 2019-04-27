@@ -37,6 +37,12 @@ export default new Router({
       name: "other1",
       component: () =>
         import(/* webpackChunkName: "Other1" */ "./views/Other1.vue")
+    },
+    {
+      path: "/wordcloud",
+      name: "wordcloud",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/wordcloud.vue")
     }
   ]
 });
