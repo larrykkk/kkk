@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="word_cloud" class="word_cloud" width="400" height="400"></canvas>
+    <canvas id="word_cloud" class="word_cloud" width="1170" height="800"></canvas>
   </div>
 </template>
 <script>
@@ -9,71 +9,71 @@ export default {
   data() {
     return {
       db: [
-        { word: "阿蓉", freq: 70 },
-        { word: "name", freq: 38 },
-        { word: "false", freq: 38 },
-        { word: "var", freq: 28 },
-        { word: "rstudio", freq: 26 },
-        { word: "true", freq: 22 },
-        { word: "留言", freq: 20 },
-        { word: "url", freq: 20 },
-        { word: "server", freq: 20 },
-        { word: "分享", freq: 18 },
-        { word: "課程", freq: 18 },
-        { word: "連結", freq: 18 },
-        { word: "openvz", freq: 17 },
-        { word: "什麼", freq: 16 },
-        { word: "wordcloud", freq: 15 },
-        { word: "virtual", freq: 15 },
-        { word: "機器", freq: 15 },
-        { word: "虛擬", freq: 15 },
-        { word: "target", freq: 14 },
-        { word: "key", freq: 14 },
-        { word: "文字", freq: 14 },
-        { word: "sharemessage", freq: 14 },
-        { word: "資訊", freq: 13 },
-        { word: "字形", freq: 13 },
-        { word: "google", freq: 13 },
-        { word: "null", freq: 12 },
-        { word: "閱讀", freq: 12 },
-        { word: "中文", freq: 12 },
-        { word: "data", freq: 12 },
-        { word: "displaymodefull", freq: 12 },
-        { word: "研究", freq: 11 },
-        { word: "linux", freq: 11 },
-        { word: "程式", freq: 10 },
-        { word: "檔案", freq: 10 },
-        { word: "系統", freq: 10 },
-        { word: "服務", freq: 10 },
-        { word: "function", freq: 10 },
-        { word: "需要", freq: 9 },
-        { word: "建立", freq: 9 },
-        { word: "使用", freq: 9 },
-        { word: "管理", freq: 9 },
-        { word: "titlexdx", freq: 8 },
-        { word: "postid", freq: 8 },
-        { word: "httpblogpulipuliinfo", freq: 8 },
-        { word: "posts", freq: 8 },
-        { word: "twitter", freq: 8 },
-        { word: "pinterest", freq: 8 },
-        { word: "blog", freq: 8 },
-        { word: "環境", freq: 8 },
-        { word: "facebook", freq: 8 },
-        { word: "comments", freq: 8 },
-        { word: "運作", freq: 7 },
-        { word: "machine", freq: 7 },
-        { word: "怎麼", freq: 6 },
-        { word: "chinese", freq: 6 },
-        { word: "開箱", freq: 6 },
-        { word: "語言", freq: 6 },
-        {
-          word: "httpblogpulipuliinforwordcloudwhyrswordclouddrawshtml",
-          freq: 5
-        },
-        { word: "standalone", freq: 5 },
-        { word: "environment", freq: 5 },
-        { word: "ubuntu", freq: 5 },
-        { word: "password", freq: 5 },
+        // { word: "阿蓉", freq: 40 },
+        // { word: "name", freq: 38 },
+        // { word: "false", freq: 38 },
+        // { word: "var", freq: 28 },
+        // { word: "rstudio", freq: 26 },
+        // { word: "true", freq: 22 },
+        // { word: "留言", freq: 20 },
+        // { word: "url", freq: 20 },
+        // { word: "server", freq: 20 },
+        // { word: "分享", freq: 18 },
+        // { word: "課程", freq: 18 },
+        // { word: "連結", freq: 18 },
+        // { word: "openvz", freq: 17 },
+        // { word: "什麼", freq: 16 },
+        // { word: "wordcloud", freq: 15 },
+        // { word: "virtual", freq: 15 },
+        // { word: "機器", freq: 15 },
+        // { word: "虛擬", freq: 15 },
+        // { word: "target", freq: 14 },
+        // { word: "key", freq: 14 },
+        // { word: "文字", freq: 14 },
+        // { word: "sharemessage", freq: 14 },
+        // { word: "資訊", freq: 13 },
+        // { word: "字形", freq: 13 },
+        // { word: "google", freq: 13 },
+        // { word: "null", freq: 12 },
+        // { word: "閱讀", freq: 12 },
+        // { word: "中文", freq: 12 },
+        // { word: "data", freq: 12 },
+        // { word: "displaymodefull", freq: 12 },
+        // { word: "研究", freq: 11 },
+        // { word: "linux", freq: 11 },
+        // { word: "程式", freq: 10 },
+        // { word: "檔案", freq: 10 },
+        // { word: "系統", freq: 10 },
+        // { word: "服務", freq: 10 },
+        // { word: "function", freq: 10 },
+        // { word: "需要", freq: 9 },
+        // { word: "建立", freq: 9 },
+        // { word: "使用", freq: 9 },
+        // { word: "管理", freq: 9 },
+        // { word: "titlexdx", freq: 8 },
+        // { word: "postid", freq: 8 },
+        // { word: "httpblogpulipuliinfo", freq: 8 },
+        // { word: "posts", freq: 8 },
+        // { word: "twitter", freq: 8 },
+        // { word: "pinterest", freq: 8 },
+        // { word: "blog", freq: 8 },
+        // { word: "環境", freq: 8 },
+        // { word: "facebook", freq: 8 },
+        // { word: "comments", freq: 8 },
+        // { word: "運作", freq: 7 },
+        // { word: "machine", freq: 7 },
+        // { word: "怎麼", freq: 6 },
+        // { word: "chinese", freq: 6 },
+        // { word: "開箱", freq: 6 },
+        // { word: "語言", freq: 6 },
+        // {
+        //   word: "httpblogpulipuliinforwordcloudwhyrswordclouddrawshtml",
+        //   freq: 5
+        // },
+        // { word: "standalone", freq: 5 },
+        // { word: "environment", freq: 5 },
+        // { word: "ubuntu", freq: 5 },
+        // { word: "password", freq: 5 },
         { word: "rs", freq: 5 },
         { word: "ssh", freq: 5 },
         { word: "這個", freq: 5 },
@@ -105,6 +105,7 @@ export default {
     };
   },
   mounted() {
+    var target = document.getElementById("word_cloud");
     this.list = [];
     for (var i in this.db) {
       this.list.push([this.db[i]["word"], this.db[i]["freq"]]);
@@ -112,8 +113,20 @@ export default {
     WordCloud.minFontSize = "15px";
     WordCloud(document.getElementById("word_cloud"), {
       list: this.list,
+      gridSize: 8,
+      weightFactor: 16,
+      fontFamily: "Hiragino Mincho Pro, serif",
+      color: "random-dark",
+      backgroundColor: "#f0f0f0",
+      rotateRatio: 0,
+      fontFamily: "Microsoft JhengHei, serif",
       click: item => {
         console.log(item);
+        window.open("https://www.google.com/search?q=" + item[0], "_blank");
+      },
+      hover: (item, dimension, event) => {
+        if (item) document.body.style.cursor = "pointer";
+        else document.body.style.cursor = "";
       }
     });
   }
