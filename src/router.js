@@ -43,6 +43,12 @@ export default new Router({
       name: "wordcloud",
       component: () =>
         import(/* webpackChunkName: "wordcloud" */ "./views/wordcloud.vue")
+    },
+    {
+      path: "/ckeditor",
+      name: "ckeditor",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/Ckeditor.vue")
     }
   ]
 });

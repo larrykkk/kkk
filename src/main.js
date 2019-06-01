@@ -5,6 +5,8 @@ import store from "./store";
 // element ui
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import CKEditor from "@ckeditor/ckeditor5-vue";
+Vue.use(CKEditor);
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false;

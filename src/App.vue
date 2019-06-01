@@ -6,7 +6,8 @@
       <router-link to="/login">Login</router-link>|
       <router-link to="/other">Other</router-link>|
       <router-link to="/other1">Other1</router-link>|
-      <router-link to="/wordcloud">wordcloud</router-link>
+      <router-link to="/wordcloud">wordcloud</router-link>|
+      <router-link to="/ckeditor">ckeditor</router-link>
     </div>
     <keep-alive include="login">
       <router-view/>
