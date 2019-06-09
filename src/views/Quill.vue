@@ -1,6 +1,6 @@
 <template>
   <!-- bidirectional data binding（双向数据绑定） -->
-  <div>
+  <div class="quill">
     <quill-editor
       v-model="content"
       ref="myQuillEditor"
@@ -8,6 +8,7 @@
       @blur="onEditorBlur($event)"
       @focus="onEditorFocus($event)"
       @ready="onEditorReady($event)"
+      class="quill-editor"
     ></quill-editor>
     <button @click="get">拿</button>
     <button @click="send">送出</button>
@@ -21,7 +22,12 @@ import "quill/dist/quill.bubble.css";
 import { quillEditor } from "vue-quill-editor";
 import Quill from "quill";
 import $ from "jquery";
-
+var toolbarOptions = [
+  ["bold", "italic", "underline", "strike"], // toggled buttons
+  ["blockquote", "code-block"],
+  ["link", "image", "video"],
+  ["clean"] // remove formatting button
+];
 export default {
   name: "quill",
   components: {
@@ -29,9 +35,14 @@ export default {
   },
   data() {
     return {
-      content: "",
+      content: "<p>a</p><p>b</p><p>c</p><p>b</p><p>e</p><p>f</p>",
       editorOption: {
-        // some quill options
+        modules: {
+          toolbar: {
+            container: toolbarOptions, // Selector for toolbar container
+            handlers: { image: this.selectLocalImage }
+          }
+        }
       }
     };
   },
@@ -75,6 +86,48 @@ export default {
         .catch(err => {
           console.error(err);
         });
+    },
+    selectLocalImage() {
+      const input = document.createElement("input");
+      input.setAttribute("type", "file");
+      input.click();
+
+      // Listen upload local image and save to server
+      input.onchange = () => {
+        const file = input.files[0];
+
+        // file type is only image.
+        if (/^image\//.test(file.type)) {
+          this.saveToServer(file);
+        } else {
+          console.warn("You could only upload images.");
+        }
+      };
+    },
+    saveToServer(file) {
+      console.log(file);
+      const fd = new FormData();
+      fd.append("image", file);
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://127.0.0.1:3000/api/image", true);
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          // this is callback data: url
+          // const url = JSON.parse(xhr.responseText).data;
+          this.insertToEditor();
+        }
+      };
+      xhr.send(fd);
+    },
+    insertToEditor(url) {
+      // push image url to rich editor.
+      const range = this.editor.getSelection();
+      this.editor.insertEmbed(
+        range.index,
+        "image",
+        "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzEwNC84MTkvb3JpZ2luYWwvY3V0ZS1raXR0ZW4uanBn"
+      );
     }
   },
   computed: {
@@ -87,3 +140,16 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.quill {
+  width: 800px;
+  margin: 0 auto;
+}
+.quill-editor {
+  margin-bottom: 15px;
+}
+button {
+  margin-right: 5px;
+}
+</style>
