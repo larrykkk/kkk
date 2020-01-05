@@ -8,6 +8,14 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
+  scrollBehavior(to, from, savedPosition) {
+    // console.log(to, from, savedPosition);
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
   routes: [
     {
       path: "/",
@@ -55,6 +63,36 @@ export default new Router({
       name: "quill",
       component: () =>
         import(/* webpackChunkName: "wordcloud" */ "./views/Quill.vue")
+    },
+    {
+      path: "/testvuexbind",
+      name: "testvuexbind",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/Testvuexbind.vue")
+    },
+    {
+      path: "/scrollBehaveor",
+      name: "scrollBehaveor",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/scrollBehaveor.vue")
+    },
+    {
+      path: "/scrollBehaveor",
+      name: "scrollBehaveor",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/scrollBehaveor.vue")
+    },
+    {
+      path: "/testComputed",
+      name: "testComputed",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/testComputed.vue")
+    },
+    {
+      path: "/jsx",
+      name: "jsx",
+      component: () =>
+        import(/* webpackChunkName: "wordcloud" */ "./views/jsx.vue")
     }
   ]
 });

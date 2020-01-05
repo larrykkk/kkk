@@ -64,7 +64,7 @@ export default {
     },
     get() {
       this.$axios
-        .get("http://127.0.0.1:3000/api/quill", {
+        .get("http://sicxxx.com/api/xxxooo", {
           params: {
             ID: 41
           }

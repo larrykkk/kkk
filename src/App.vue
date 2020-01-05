@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <!-- <keep-alive>
+      <router-view></router-view>
+    </keep-alive> -->
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>|
@@ -8,10 +11,12 @@
       <router-link to="/other1">Other1</router-link>|
       <router-link to="/wordcloud">wordcloud</router-link>|
       <router-link to="/ckeditor">ckeditor</router-link>|
-      <router-link to="/quill">quill</router-link>
+      <router-link to="/quill">quill</router-link>|
+      <router-link to="/testvuexbind">testvuexbind</router-link>|
+      <router-link to="/scrollBehaveor">scrollBehaveor</router-link>
     </div>
     <keep-alive include="login">
-      <router-view/>
+      <router-view />
     </keep-alive>
   </div>
 </template>

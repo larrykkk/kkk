@@ -5,9 +5,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userEmail: ""
+    userEmail: "",
+    checkList: ["选中且禁用", "复选框 A"]
   },
   mutations: {
+    handleVal(state, payload) {
+      state.checkList = payload;
+    }
     // setUserEmail(state, payload) {
     //   state.userEmail = payload;
     //   console.log("ji3y94");

@@ -46,7 +46,6 @@
         :current-page="currentPage2"
         @click="checkPage()"
         @current-change="handleCurrentChange2"
-        v-if="tableData2.length >= 10"
       ></el-pagination>
     </el-col>
   </el-row>
@@ -59,7 +58,7 @@ export default {
   methods: {
     checkPage() {},
     handleCurrentChange1(val) {
-      this.currentPage1 = val;
+      this.$router.push({ name: "other", query: { page: val } });
     },
     handleCurrentChange2(val) {
       this.currentPage2 = val;
@@ -73,6 +72,19 @@ export default {
       } else {
         return [];
       }
+    }
+  },
+  created() {
+    console.log(this.currentPage1);
+  },
+  watch: {
+    $route: {
+      handler: function() {
+        console.log(this.$route);
+        this.currentPage1 = this.$route.query.page * 1;
+        console.log(this.currentPage1);
+      },
+      immediate: true
     }
   },
   data() {
